@@ -12,10 +12,9 @@ import { Shield, Lock, LogIn } from 'lucide-react-native';
 import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ADMIN_CREDENTIALS = {
-  username: 'admin',
-  password: 'admin123',
-};
+// TODO: Replace this with a secure authentication provider.
+// This is a placeholder for demo purposes.
+const DUMMY_AUTH_ENABLED = true;
 
 export default function AdminLoginScreen() {
   const [username, setUsername] = useState('');
@@ -29,11 +28,13 @@ export default function AdminLoginScreen() {
     }
 
     setLoading(true);
-    
-    if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+
+    // TODO: Replace this with a real authentication call to your backend.
+    if (DUMMY_AUTH_ENABLED) {
       await AsyncStorage.setItem('admin_authenticated', 'true');
       router.replace('/admin/dashboard');
     } else {
+      // Replace with actual error handling
       alert('Invalid credentials. Please try again.');
     }
     
@@ -106,12 +107,6 @@ export default function AdminLoginScreen() {
                 </Text>
               </LinearGradient>
             </TouchableOpacity>
-
-            <View style={styles.demoCredentials}>
-              <Text style={styles.demoTitle}>Demo Credentials:</Text>
-              <Text style={styles.demoText}>Username: admin</Text>
-              <Text style={styles.demoText}>Password: admin123</Text>
-            </View>
           </View>
         </View>
       </LinearGradient>
