@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "EXPO_NO_TELEMETRY=1 expo start",
     "build:web": "expo export --platform web",
-    "lint": "expo lint",
-    "serve:admin-web": "http-server web-admin -p 3000"
+    "lint": "expo lint"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.1",
